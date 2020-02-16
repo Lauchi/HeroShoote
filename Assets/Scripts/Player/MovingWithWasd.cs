@@ -5,9 +5,11 @@ namespace Player
     public class MovingWithWasd : MonoBehaviour
     {
         public float speed = 4;
-        void FixedUpdate()
+        public void FixedUpdate()
         {
-            var movement = new Vector3 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+            var horizontal = Input.GetAxis("Horizontal");
+            var vertical = Input.GetAxis("Vertical");
+            var movement = new Vector3 (horizontal, vertical, 0);
             transform.position += movement * (speed * Time.deltaTime);
         }
     }
